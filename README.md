@@ -1,6 +1,6 @@
 
-# Elden Ring Max Load Calculator
-
+## Elden Ring Max Load Calculator
+# CURRENTLY BROKEN
 This is a simple calculator that calculates what the maximum amount of equip load you need to have different weight loads
 
 ## How To Use It
@@ -12,7 +12,7 @@ In the second box, type your target percent.
 There is a guide for percentages on the top of the website.
 If it worked, you should see the "Target Percent" change.
 For example, "Target Percent = 70"
-# Do not type a percent symbol, only type the number.
+## Do not type a percent symbol, only type the number.
 
 Once you have done both of those, press the "Calculate Max Load" button.
 If it worked, you should see the "Max Equip Load" change. For example, "Max Equip Load = 67.9"
