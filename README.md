@@ -1,6 +1,5 @@
 
 ## Elden Ring Max Load Calculator
-# CURRENTLY BROKEN
 This is a simple calculator that calculates what the maximum amount of equip load you need to have different weight loads
 
 ## How To Use It
