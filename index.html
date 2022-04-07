@@ -1,29 +1,30 @@
 <head>
 	<title>Endurance Calculator</title>
+	<link rel="stylesheet" href="style.css">
 </head>
 <body>
-	<b>Light Roll = less than 30%<br>Normal Roll = 30% to 70$<br>Heavy Roll = 71% to 100%</b>
-	<br>
-	<input type="text" id='eWeight'>
-	<br>
-	<button type="button" onclick="getEWeight();">Get Target Equip Weight</button>
-	<br>
-	<input type="text" id="tPercent">
-	<br>
-	<button type="button" onclick="getTPercent();">Get Target Percent</button>
-	<br>
+		<b>Light Roll = less than 30%<br>Normal Roll = 30% to 70$<br>Heavy Roll = 71% to 100%</b>
+		<br>
+		<input type="text" id='eWeight'>
+		<br>
+		<a href="#" class="getWeightBt" onclick="getEWeight();">Get Target Equip Weight</a>
+		<br>
+		<input type="text" id="tPercent">
+		<br>
+		<a href="#" class="getTPercent" onclick="getTPercent();">Get Target Percent</a>
+		<br>
 	Target Equip Weight = 
 	<label id="eWeightVal">
-	</label>
-	<br>
-	Target Percent = 
+		</label>
+		<br>
+		Target Percent = 
 	<label id="tPercentVal">
 	</label>
-	<br>
-	<br>
-	<button id='calcButton' onclick="calcEndurance();">Calculate Max Load</button>
-	<br>
-	Max Equip Load = <label id="endurance">
+		<br>
+		<br>
+		<a href="#" class='calcButton' onclick="calcEndurance();">Calculate Max Load</a>
+		<br>
+		Max Equip Load = <label id="endurance">
 	</label>
 	<script>
         function getEWeight(){
@@ -36,19 +37,19 @@
         }
 		
 		function getTPercent(){
-		var tPercent = document.getElementById("tPercent").value;
-		var tPercentVal = document.getElementById("tPercentVal").innerHTML = tPercent;
-		console.log(tPercent);
+			var tPercent = document.getElementById("tPercent").value;
+			var tPercentVal = document.getElementById("tPercentVal").innerHTML = tPercent;
+			console.log(tPercent);
 		}
 		
 		function calcEndurance() {
-		console.log(eWeight);
-		console.log(tPercent);
-		var eWeight2 = eWeight.value * 100;
-		var wLoad = eWeight2 / tPercent.value;
-		var wLoad2 = wLoad.toFixed(1)
-		var enduranceVal = document.getElementById("endurance").innerHTML = wLoad2;
-		console.log(wLoad2);
+			console.log(eWeight);
+			console.log(tPercent);
+			var eWeight2 = eWeight.value * 100;
+			var wLoad = eWeight2 / tPercent.value;
+			var wLoad2 = wLoad.toFixed(1)
+			var enduranceVal = document.getElementById("endurance").innerHTML = wLoad2;
+			console.log(wLoad2);
 		};
     </script>
 </body>
