@@ -1,0 +1,64 @@
+.getWeightBt {
+  background:linear-gradient(to bottom, #44c767 5%, #5cbf2a 100%);
+  background-color:#44c767;
+  border-radius:28px;
+  border:1px solid #18ab29;
+  display:inline-block;
+  cursor:pointer;
+  color:#ffffff;
+  font-family:Arial;
+  font-size:14px;
+  padding:7px 5px;
+  text-decoration:none;
+}
+.getWeightBt:hover {
+  background:linear-gradient(to bottom, #5cbf2a 5%, #44c767 100%);
+  background-color:#5cbf2a;
+}
+.getWeightBt:active {
+  position:relative;
+  top:1px;
+}
+
+.calcButton {
+  background:linear-gradient(to bottom, #44c767 5%, #5cbf2a 100%);
+  background-color:#44c767;
+  border-radius:28px;
+  border:1px solid #18ab29;
+  display:inline-block;
+  cursor:pointer;
+  color:#ffffff;
+  font-family:Arial;
+  font-size:14px;
+  padding:7px 5px;
+  text-decoration:none;
+}
+.calcButton:hover {
+  background:linear-gradient(to bottom, #5cbf2a 5%, #44c767 100%);
+  background-color:#5cbf2a;
+}
+.calcButton:active {
+  position:relative;
+  top:1px;
+}
+.getTPercent {
+  background:linear-gradient(to bottom, #44c767 5%, #5cbf2a 100%);
+  background-color:#44c767;
+  border-radius:28px;
+  border:1px solid #18ab29;
+  display:inline-block;
+  cursor:pointer;
+  color:#ffffff;
+  font-family:Arial;
+  font-size:14px;
+  padding:7px 5px;
+  text-decoration:none;
+}
+.getTPercent:hover {
+  background:linear-gradient(to bottom, #5cbf2a 5%, #44c767 100%);
+  background-color:#5cbf2a;
+}
+.getTPercent:active {
+  position:relative;
+  top:1px;
+}
