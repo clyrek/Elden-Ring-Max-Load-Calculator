@@ -5,13 +5,9 @@
 <body>
 		<b>Light Roll = less than 30%<br>Normal Roll = 30% to 70$<br>Heavy Roll = 71% to 100%</b>
 		<br>
-		<input type="text" id='eWeight'>
+		<input type="text" id='eWeight' placeholder="Enter Target Weight">
 		<br>
-		<a href="#" class="getWeightBt" onclick="getEWeight();">Get Target Equip Weight</a>
-		<br>
-		<input type="text" id="tPercent">
-		<br>
-		<a href="#" class="getTPercent" onclick="getTPercent();">Get Target Percent</a>
+		<input type="text" id="tPercent" placeholder="Enter Target Percent">
 		<br>
 	Target Equip Weight = 
 	<label id="eWeightVal">
@@ -51,5 +47,8 @@
 			var enduranceVal = document.getElementById("endurance").innerHTML = wLoad2;
 			console.log(wLoad2);
 		};
+
+		setInterval(getEWeight)
+		setInterval(getTPercent)
     </script>
 </body>
