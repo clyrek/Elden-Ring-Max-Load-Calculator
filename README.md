@@ -4,7 +4,7 @@ This is a simple calculator that calculates what the maximum amount of equip loa
 
 ## How To Use It
 In the first box, type how much weight you want to be able to carry.
-Then, press the "Get Target Equip Weight" button. If it worked, you should see the "Target Equip Weight" change.
+If it worked, you should see the "Target Equip Weight" change.
 For example, "Target Equip Weight = 47.5".
 
 In the second box, type your target percent.
