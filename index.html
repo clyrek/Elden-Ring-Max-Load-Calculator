@@ -1,51 +1,99 @@
 <head>
 	<title>Endurance Calculator</title>
 	<link rel="stylesheet" href="style.css">
+	<script src="script.js"></script>
 </head>
-<body>
-		<b>Light Roll = less than 30%<br>Normal Roll = 30% to 70$<br>Heavy Roll = 71% to 100%</b>
-		<br>
-		<input type="text" id='eWeight' placeholder="Enter Target Weight">
-		<br>
-		<input type="text" id="tPercent" placeholder="Enter Target Percent">
-		<br>
-	Target Equip Weight = 
-	<label id="eWeightVal">
-		</label>
-		<br>
-		Target Percent = 
-	<label id="tPercentVal">
-	</label>
-		<br>
-		<br>
-		<a href="#" class='calcButton' onclick="calcEndurance();">Calculate Max Load</a>
-		<br>
-		Max Equip Load = <label id="endurance">
-	</label>
+<body id='body'>
+	<div class='outer'>
+		<div class='inner'></div>
+			<a href="#" class="themeButton" onclick="themeChange()">Change Theme</a>
+		</div>
+	</div>
+	<b class='child' name="text">Light Roll = less than 30%<br>Normal Roll = 30% to 70$<br>Heavy Roll = 71% to 100%</b>
+	<br>
+	<input type="text" id='eWeight' value="47.5" placeholder="Enter Target Weight">
+	<br>
+	<input type="text" id="tPercent" value="70" placeholder="Enter Target Percent">
+	<br>
+	<div id="calculator">
+	<p name='text' class='child'>Target Equip Weight = &#160</p><p class='child' id="eWeightVal"></p>
+	<br>
+	<p name='text' class='child'>Target Percent = &#160</p class='child'><p class='child' id="tPercentVal"></p>
+	<br>
+	<a href="#" class='child' id='calcButton' onclick="calcEndurance();">Calculate Max Load</a>
+	<br>
+	<p name='text' class='child'>Max Equip Load = &#160</p><p class='child' id="endurance">
+	</p>
+	<br>
+	<p name='text' class='child'>Endurance Level Needed = &#160</p><p  class='child' id='enduranceLevel'></p>
 	<script>
+		var theme = 0;
+		function test() {
+			document.getElementById('body').style.backgroundColor = '#000000';
+			var childClass = document.getElementsByClassName('child')
+			for (var i = 0; i < childClass.length; i++) {
+    			childClass[i].style.color = '#FFFFFF';
+			}
+			console.log("Body color is " + document.getElementById('body').style.backgroundColor)
+			console.log("Text color is " + childClass.color)
+		}
+		function themeChange() {
+			if (theme == 0) {
+				document.getElementById('body').style.backgroundColor = '#000000';
+				var childClass = document.getElementsByClassName('child')
+				for (var i = 0; i < childClass.length; i++) {
+    				childClass[i].style.color = '#FFFFFF';
+				}
+				theme = 1;
+			}
+			else if (theme == 1) {
+				document.getElementById('body').style.backgroundColor = '#ffffff';
+				var childClass = document.getElementsByClassName('child')
+				for (var i = 0; i < childClass.length; i++) {
+    				childClass[i].style.color = '#000000';
+			}
+				theme = 0;
+			}
+			console.log('Theme is ' + theme);
+		}
+		var wLoad2;
+		function calcEnduranceLvl () {
+		var enduranceLvl = 'yo';
+		wload2 = document.getElementById("endurance").innerHTML;
+  		if (wLoad2 <= '45') {
+    		enduranceLvl = "1-8"
+  		} else if (wLoad2 >= '46.6' && wLoad2 < '48.2') {
+		    enduranceLvl = "9"
+		  } else {
+		    enduranceLvl = "balls fr"
+		  } 
+		  document.getElementById('enduranceLevel').innerHTML = enduranceLvl;
+		  if (enduranceLvl >= '0') {
+		  console.log(enduranceLvl)
+		} else {
+		  return;
+		};
+		}
         function getEWeight(){
             // Selecting the input element and get its value 
             var eWeight = document.getElementById("eWeight").value;
             var eWeightVal = document.getElementById("eWeightVal").innerHTML = eWeight;
 			var eWeight = document.getElementById("eWeight").value;
             // Displaying the value
-            console.log(eWeight);
         }
 		
 		function getTPercent(){
 			var tPercent = document.getElementById("tPercent").value;
 			var tPercentVal = document.getElementById("tPercentVal").innerHTML = tPercent;
-			console.log(tPercent);
 		}
 		
 		function calcEndurance() {
-			console.log(eWeight);
-			console.log(tPercent);
 			var eWeight2 = eWeight.value * 100;
 			var wLoad = eWeight2 / tPercent.value;
 			var wLoad2 = wLoad.toFixed(1)
-			var enduranceVal = document.getElementById("endurance").innerHTML = wLoad2;
-			console.log(wLoad2);
+			enduranceVal = document.getElementById("endurance").innerHTML = wLoad2;
+			console.log(document.getElementById("endurance").innerHTML);
+			calcEnduranceLvl();
 		};
 
 		setInterval(getEWeight)
