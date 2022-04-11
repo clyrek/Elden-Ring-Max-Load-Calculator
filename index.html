@@ -1,53 +1,364 @@
 <head>
 	<title>Endurance Calculator</title>
 	<link rel="stylesheet" href="style.css">
+	<script src="script.js"></script>
 </head>
-<body>
-		<b>Light Roll = less than 30%<br>Normal Roll = 30% to 70$<br>Heavy Roll = 71% to 100%</b>
-		<br>
-		<input type="text" id='eWeight' placeholder="Enter Target Weight">
-		<br>
-		<input type="text" id="tPercent" placeholder="Enter Target Percent">
-		<br>
-	Target Equip Weight = 
-	<label id="eWeightVal">
-		</label>
-		<br>
-		Target Percent = 
-	<label id="tPercentVal">
-	</label>
-		<br>
-		<br>
-		<a href="#" class='calcButton' onclick="calcEndurance();">Calculate Max Load</a>
-		<br>
-		Max Equip Load = <label id="endurance">
-	</label>
+<body id='body'>
+	<div class='outer'>
+		<div class='inner'></div>
+			<a href="#" class="themeButton" onclick="themeChange()">Change Theme</a>
+		</div>
+	</div>
+	<b class='child' name="text">Light Roll = less than 30%<br>Normal Roll = 30% to 70$<br>Heavy Roll = 71% to 100%</b>
+	<br>
+	<input type="text" id='eWeight' value="47.5" placeholder="Enter Target Weight">
+	<br>
+	<input type="text" id="tPercent" value="70" placeholder="Enter Target Percent">
+	<br>
+	<div id="wLoad2r">
+	<p name='text' class='child'>Target Equip Weight = &#160</p><p class='child' id="eWeightVal"></p>
+	<br>
+	<p name='text' class='child'>Target Percent = &#160</p class='child'><p class='child' id="tPercentVal"></p>
+	<br>
+	<a href="#" class='child' id='calcButton' onclick="calcEndurance();">Calculate Max Load</a>
+	<br>
+	<p name='text' class='child'>Max Equip Load = &#160</p><p class='child' id="endurance">
+	</p>
+	<br>
+	<p name='text' class='child'>Endurance Level Needed = &#160</p><p  class='child' id='enduranceLevel'></p>
 	<script>
+		var theme = 0;
+		var wLoad2 = 'fuck javascript whoever made javascript was a fucking neanderthal'
+		function themeChange() {
+			if (theme == 0) {
+				document.getElementById('body').style.backgroundColor = '#000000';
+				var childClass = document.getElementsByClassName('child')
+				for (var i = 0; i < childClass.length; i++) {
+    				childClass[i].style.color = '#FFFFFF';
+				}
+				theme = 1;
+			}
+			else if (theme == 1) {
+				document.getElementById('body').style.backgroundColor = '#ffffff';
+				var childClass = document.getElementsByClassName('child')
+				for (var i = 0; i < childClass.length; i++) {
+    				childClass[i].style.color = '#000000';
+			}
+				theme = 0;
+			}
+			console.log('Theme is ' + theme);
+		}
         function getEWeight(){
             // Selecting the input element and get its value 
             var eWeight = document.getElementById("eWeight").value;
             var eWeightVal = document.getElementById("eWeightVal").innerHTML = eWeight;
 			var eWeight = document.getElementById("eWeight").value;
             // Displaying the value
-            console.log(eWeight);
         }
 		
 		function getTPercent(){
 			var tPercent = document.getElementById("tPercent").value;
 			var tPercentVal = document.getElementById("tPercentVal").innerHTML = tPercent;
-			console.log(tPercent);
 		}
 		
 		function calcEndurance() {
-			console.log(eWeight);
-			console.log(tPercent);
 			var eWeight2 = eWeight.value * 100;
 			var wLoad = eWeight2 / tPercent.value;
-			var wLoad2 = wLoad.toFixed(1)
-			var enduranceVal = document.getElementById("endurance").innerHTML = wLoad2;
-			console.log(wLoad2);
+			wLoad2 = wLoad.toFixed(1)
+			enduranceVal = document.getElementById("endurance").innerHTML = wLoad2;
+			console.log(document.getElementById("endurance").innerHTML);
+			calcEnduranceLvl();
 		};
 
 		setInterval(getEWeight)
 		setInterval(getTPercent)
+		console.log(wLoad2)
+		const level = []
+  level[0] = "45";
+  level[1] = "46.6";
+  level[2] = "48.2";
+  level[3] = "49.8";
+  level[4] = "51.4";
+  level[5] = "52.9";
+  level[6] = "54.5";
+  level[7] = "56.1";
+  level[8] = "57.7";
+  level[9] = "59.3";
+  level[10] = "60.9";
+  level[11] = "62.5";
+  level[12] = "64.1";
+  level[13] = "65.6";
+  level[14] = "67.2";
+  level[15] = "68.8";
+  level[16] = "70.4";
+  level[17] = "72.0";
+  level[18] = "73.0";
+  level[19] = "74.1";
+  level[20] = "75.2";
+  level[21] =  "76.4"
+  level[22] =  "77.6"
+  level[23] =  "78.9"
+  level[24] =  "80.2"
+  level[25] =  "81.5"
+  level[26] =  "82.8"
+  level[27] =  "84.1"
+  level[28] =  "85.4"
+  level[29] =  "86.8"
+  level[30] =  "88.1"
+  level[31] =  "89.5"
+  level[32] =  "90.9"
+  level[33] =  "92.3"
+  level[34] =  "93.7"
+  level[35] =  "95.1"
+  level[36] =  "96.5"
+  level[37] =  "97.9"
+  level[38] =  "99.4"
+  level[39] =  "100.8"
+  level[40] =  "102.2"
+  level[41] =  "103.7"
+  level[42] =  "105.2"
+  level[43] =  "106.6"
+  level[44] =  "108.1"
+  level[45] =  "109.6"
+  level[46] =  "111.0"
+  level[47] =  "112.5"
+  level[48] =  "114.0"
+  level[49] =  "115.5"
+  level[50] =  "117.0"
+  level[51] =  "118.5"
+  level[52] =  "120.0"
+  level[53] =  "121.0"
+  level[54] =  "122.1"
+  level[55] =  "123.1"
+  level[56] =  "124.1"
+  level[57] =  "125.1"
+  level[58] =  "126.2"
+  level[59] =  "127.2"
+  level[60] =  "128.2"
+  level[61] =  "129.2"
+  level[62] =  "130.3"
+  level[63] =  "131.3"
+  level[64] =  "132.3"
+  level[65] =  "133.3"
+  level[66] =  "134.4"
+  level[67] =  "135.4"
+  level[68] =  "136.4"
+  level[69] =  "137.4"
+  level[70] =  "138.5"
+  level[71] =  "139.5"
+  level[72] =  "140.5"
+  level[73] =  "141.5"
+  level[74] =  "142.6"
+  level[75] =  "143.6"
+  level[76] =  "144.6"
+  level[77] =  "145.6"
+  level[78] =  "146.7"
+  level[79] =  "147.7"
+  level[80] =  "148.7"
+  level[81] =  "149.7"
+  level[82] =  "150.8"
+  level[83] =  "151.8"
+  level[84] =  "152.8"
+  level[85] =  "153.8"
+  level[86] =  "154.9"
+  level[87] =  "155.9"
+  level[88] =  "156.9"
+  level[89] =  "157.9"
+  level[90] = "159.0"
+  level[91] = "160.0"
+    wLoad = wLoad2
+    function calcEnduranceLvl () {
+    wLoad = wLoad2
+    console.log(wLoad2)
+    var enduranceLvl = 'yo';
+    if (wLoad <= level[0]) {
+      enduranceVal = "1 - 8"
+    }else if (wLoad > level[0] && wLoad2 <= level[1]) {
+	 enduranceVal = "9"
+	 } else if (wLoad > level[1] && wLoad2 <= level[2]) {
+	 enduranceVal = "10"
+	 } else if (wLoad > level[2] && wLoad2 <= level[3]) {
+	 enduranceVal = "11"
+	 } else if (wLoad > level[3] && wLoad2 <= level[4]) {
+	 enduranceVal = "12"
+	 } else if (wLoad > level[4] && wLoad2 <= level[5]) {
+	 enduranceVal = "13"
+	 } else if (wLoad > level[5] && wLoad2 <= level[6]) {
+	 enduranceVal = "14"
+	 } else if (wLoad > level[6] && wLoad2 <= level[7]) {
+	 enduranceVal = "15"
+	 } else if (wLoad > level[7] && wLoad2 <= level[8]) {
+	 enduranceVal = "16"
+	 } else if (wLoad > level[8] && wLoad2 <= level[9]) {
+	 enduranceVal = "17"
+	 } else if (wLoad > level[9] && wLoad2 <= level[10]) {
+	 enduranceVal = "18"
+	 } else if (wLoad > level[10] && wLoad2 <= level[11]) {
+	 enduranceVal = "19"
+	 } else if (wLoad > level[11] && wLoad2 <= level[12]) {
+	 enduranceVal = "20"
+	 } else if (wLoad > level[12] && wLoad2 <= level[13]) {
+	 enduranceVal = "21"
+	 } else if (wLoad > level[13] && wLoad2 <= level[14]) {
+	 enduranceVal = "22"
+	 } else if (wLoad > level[14] && wLoad2 <= level[15]) {
+	 enduranceVal = "23"
+	 } else if (wLoad > level[15] && wLoad2 <= level[16]) {
+	 enduranceVal = "24"
+	 } else if (wLoad > level[16] && wLoad2 <= level[17]) {
+	 enduranceVal = "25"
+	 } else if (wLoad > level[17] && wLoad2 <= level[18]) {
+	 enduranceVal = "26"
+	 } else if (wLoad > level[18] && wLoad2 <= level[19]) {
+	 enduranceVal = "27"
+	 } else if (wLoad > level[19] && wLoad2 <= level[20]) {
+	 enduranceVal = "28"
+	 } else if (wLoad > level[20] && wLoad2 <= level[21]) {
+	 enduranceVal = "29"
+	 } else if (wLoad > level[21] && wLoad2 <= level[22]) {
+	 enduranceVal = "30"
+	 } else if (wLoad > level[22] && wLoad2 <= level[23]) {
+	 enduranceVal = "31"
+	 } else if (wLoad > level[23] && wLoad2 <= level[24]) {
+	 enduranceVal = "32"
+	 } else if (wLoad > level[24] && wLoad2 <= level[25]) {
+	 enduranceVal = "33"
+	 } else if (wLoad > level[25] && wLoad2 <= level[26]) {
+	 enduranceVal = "34"
+	 } else if (wLoad > level[26] && wLoad2 <= level[27]) {
+	 enduranceVal = "35"
+	 } else if (wLoad > level[27] && wLoad2 <= level[28]) {
+	 enduranceVal = "36"
+	 } else if (wLoad > level[28] && wLoad2 <= level[29]) {
+	 enduranceVal = "37"
+	 } else if (wLoad > level[29] && wLoad2 <= level[30]) {
+	 enduranceVal = "38"
+	 } else if (wLoad > level[30] && wLoad2 <= level[31]) {
+	 enduranceVal = "39"
+	 } else if (wLoad > level[31] && wLoad2 <= level[32]) {
+	 enduranceVal = "40"
+	 } else if (wLoad > level[32] && wLoad2 <= level[33]) {
+	 enduranceVal = "41"
+	 } else if (wLoad > level[33] && wLoad2 <= level[34]) {
+	 enduranceVal = "42"
+	 } else if (wLoad > level[34] && wLoad2 <= level[35]) {
+	 enduranceVal = "43"
+	 } else if (wLoad > level[35] && wLoad2 <= level[36]) {
+	 enduranceVal = "44"
+	 } else if (wLoad > level[36] && wLoad2 <= level[37]) {
+	 enduranceVal = "45"
+	 } else if (wLoad > level[37] && wLoad2 <= level[38]) {
+	 enduranceVal = "46"
+	 } else if (wLoad > level[38] && wLoad2 <= level[39]) {
+	 enduranceVal = "47"
+	 } else if (wLoad > level[39] && wLoad2 <= level[40]) {
+	 enduranceVal = "48"
+	 } else if (wLoad > level[40] && wLoad2 <= level[41]) {
+	 enduranceVal = "49"
+	 } else if (wLoad > level[41] && wLoad2 <= level[42]) {
+	 enduranceVal = "50"
+	 } else if (wLoad > level[42] && wLoad2 <= level[43]) {
+	 enduranceVal = "51"
+	 } else if (wLoad > level[43] && wLoad2 <= level[44]) {
+	 enduranceVal = "52"
+	 } else if (wLoad > level[44] && wLoad2 <= level[45]) {
+	 enduranceVal = "53"
+	 } else if (wLoad > level[45] && wLoad2 <= level[46]) {
+	 enduranceVal = "54"
+	 } else if (wLoad > level[46] && wLoad2 <= level[47]) {
+	 enduranceVal = "55"
+	 } else if (wLoad > level[47] && wLoad2 <= level[48]) {
+	 enduranceVal = "56"
+	 } else if (wLoad > level[48] && wLoad2 <= level[49]) {
+	 enduranceVal = "57"
+	 } else if (wLoad > level[49] && wLoad2 <= level[50]) {
+	 enduranceVal = "58"
+	 } else if (wLoad > level[50] && wLoad2 <= level[51]) {
+	 enduranceVal = "59"
+	 } else if (wLoad > level[51] && wLoad2 <= level[52]) {
+	 enduranceVal = "60"
+	 } else if (wLoad > level[52] && wLoad2 <= level[53]) {
+	 enduranceVal = "61"
+	 } else if (wLoad > level[53] && wLoad2 <= level[54]) {
+	 enduranceVal = "62"
+	 } else if (wLoad > level[54] && wLoad2 <= level[55]) {
+	 enduranceVal = "63"
+	 } else if (wLoad > level[55] && wLoad2 <= level[56]) {
+	 enduranceVal = "64"
+	 } else if (wLoad > level[56] && wLoad2 <= level[57]) {
+	 enduranceVal = "65"
+	 } else if (wLoad > level[57] && wLoad2 <= level[58]) {
+	 enduranceVal = "66"
+	 } else if (wLoad > level[58] && wLoad2 <= level[59]) {
+	 enduranceVal = "67"
+	 } else if (wLoad > level[59] && wLoad2 <= level[60]) {
+	 enduranceVal = "68"
+	 } else if (wLoad > level[60] && wLoad2 <= level[61]) {
+	 enduranceVal = "69"
+	 } else if (wLoad > level[61] && wLoad2 <= level[62]) {
+	 enduranceVal = "70"
+	 } else if (wLoad > level[62] && wLoad2 <= level[63]) {
+	 enduranceVal = "71"
+	 } else if (wLoad > level[63] && wLoad2 <= level[64]) {
+	 enduranceVal = "72"
+	 } else if (wLoad > level[64] && wLoad2 <= level[65]) {
+	 enduranceVal = "73"
+	 } else if (wLoad > level[65] && wLoad2 <= level[66]) {
+	 enduranceVal = "74"
+	 } else if (wLoad > level[66] && wLoad2 <= level[67]) {
+	 enduranceVal = "75"
+	 } else if (wLoad > level[67] && wLoad2 <= level[68]) {
+	 enduranceVal = "76"
+	 } else if (wLoad > level[68] && wLoad2 <= level[69]) {
+	 enduranceVal = "77"
+	 } else if (wLoad > level[69] && wLoad2 <= level[70]) {
+	 enduranceVal = "78"
+	 } else if (wLoad > level[70] && wLoad2 <= level[71]) {
+	 enduranceVal = "79"
+	 } else if (wLoad > level[71] && wLoad2 <= level[72]) {
+	 enduranceVal = "80"
+	 } else if (wLoad > level[72] && wLoad2 <= level[73]) {
+	 enduranceVal = "81"
+	 } else if (wLoad > level[73] && wLoad2 <= level[74]) {
+	 enduranceVal = "82"
+	 } else if (wLoad > level[74] && wLoad2 <= level[75]) {
+	 enduranceVal = "83"
+	 } else if (wLoad > level[75] && wLoad2 <= level[76]) {
+	 enduranceVal = "84"
+	 } else if (wLoad > level[76] && wLoad2 <= level[77]) {
+	 enduranceVal = "85"
+	 } else if (wLoad > level[77] && wLoad2 <= level[78]) {
+	 enduranceVal = "86"
+	 } else if (wLoad > level[78] && wLoad2 <= level[79]) {
+	 enduranceVal = "87"
+	 } else if (wLoad > level[79] && wLoad2 <= level[80]) {
+	 enduranceVal = "88"
+	 } else if (wLoad > level[80] && wLoad2 <= level[81]) {
+	 enduranceVal = "89"
+	 } else if (wLoad > level[81] && wLoad2 <= level[82]) {
+	 enduranceVal = "90"
+	 } else if (wLoad > level[82] && wLoad2 <= level[83]) {
+	 enduranceVal = "91"
+	 } else if (wLoad > level[83] && wLoad2 <= level[84]) {
+	 enduranceVal = "92"
+	 } else if (wLoad > level[84] && wLoad2 <= level[85]) {
+	 enduranceVal = "93"
+	 } else if (wLoad > level[85] && wLoad2 <= level[86]) {
+	 enduranceVal = "94"
+	 } else if (wLoad > level[86] && wLoad2 <= level[87]) {
+	 enduranceVal = "95"
+	 } else if (wLoad > level[87] && wLoad2 <= level[88]) {
+	 enduranceVal = "96"
+	 } else if (wLoad > level[88] && wLoad2 <= level[89]) {
+	 enduranceVal = "97"
+	 } else if (wLoad > level[89] && wLoad2 <= level[90]) {
+	 enduranceVal = "98"
+	 } else if (wLoad > level[90] && wLoad2 <= level[91]) {
+	 enduranceVal = "99"
+	 }
+    console.log(wLoad)
+    document.getElementById('enduranceLevel').innerHTML = enduranceVal;
+  }
+
     </script>
+</body>
